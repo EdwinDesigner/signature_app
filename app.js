@@ -11,6 +11,10 @@ app.use(express.json());
 
 app.use("/api/signature", signatureRoute);
 
+app.get("/", (req, res) => {
+  res.send("Api signature");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
