@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import signatureRoute from "./routes/signature.route.js";
 
-export const app = express();
+const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors());
@@ -18,3 +18,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+export default app;
