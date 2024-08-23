@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-router.post("/", upload.array('files'), createSignature);
+const cpUpload = upload.fields([{ name: 'xml', maxCount: 1 }, { name: 'signature', maxCount: 1 }])
+router.post("/", cpUpload, createSignature);
 
 export default router;

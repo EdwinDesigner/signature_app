@@ -3,9 +3,14 @@ import { signInvoiceXml } from 'ec-sri-invoice-signer';
 
 export const createSignature = async (req, res) => {
 
-  const xmlFile = req.files[0];
-  const p12File = req.files[1];
+  const { xml, signature } = req.files
+
+  console.log(xml);
+  console.log(signature);
+
   const password = req.body.password;
+  const xmlFile = xml[0];
+  const p12File = signature[0];
 
   if(!xmlFile && !p12File) return res.status(400).send('Los archivos XML y P12 son requeridos.');
   if(!password) return res.status(400).send('La contraseña es requerida.');
