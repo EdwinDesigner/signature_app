@@ -6,7 +6,7 @@ export const createSignature = async (req, res) => {
   // const { xml, signature } = req.files
 
 
-  const password = req.body.password;
+  const { password } = req.body;
   // const xmlFile = xml[0];
   // const p12File = signature[0];
 
